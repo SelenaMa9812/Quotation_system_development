@@ -14,8 +14,12 @@
 
 `Kraken Futures`    `KuCoin`    `OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
 
+### 后端
+`Redis (Streams and Sorted Sets)`   `Arctic`    `ZeroMQ`    `UDP Sockets`   `TCP Sockets`
 
+`Unix Domain Sockets`   `InfluxDB v2`    `MongoDB`    `Kafka`     `Elastic Search`
 
+`RabbitMQ`    `PostgreSQL`    `GCP Pub/Sub`     `VictoriaMetrics`
 
 
 
