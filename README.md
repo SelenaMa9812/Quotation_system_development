@@ -5,7 +5,7 @@
 ## cryptofeed开源框架
 ### Feedhandler
 #### 可以连接的交易所
-.add_feed() 可以添加下面任意交易所(一次调用只能添加一个交易所)，feed列表即为已添加的交易所的列表。
+.add_feed() 可以添加下面任意交易所(一次调用只能添加一个交易所)，feed列表即为已添加的交易所的列表.
 
 >`AscendEX`   `Bequant`   `Bitcoin.com`   `Bitfinex`    `bitFlyer`   `Bithumb`   `Bitstamp`    `Bittrex`   `Blockchain.com`
 >
@@ -17,7 +17,7 @@
 >
 >`OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
 
-.run() 启动Feedhandler。注意Feedhandler使用Asyncio模块，已经运行了Feedhandler的时候运行run()会报错。
+.run() 启动Feedhandler。注意Feedhandler使用Asyncio模块，已经运行了Feedhandler的时候运行run()会报错.
 
 ```Python
 def main():
@@ -40,12 +40,13 @@ if __name__ == '__main__':
 
 
 ### Connection Handler
-cryptofeed支持HTTP, Websocket协议。
+cryptofeed支持HTTP, Websocket协议.
 
-Connection Handler通过创建连接、处理异常并根据需要重新启动连接，进行维护和监视connections。
+Connection Handler通过创建连接、处理异常并根据需要重新启动连接，进行维护和监视connections.
 
 ### Exchange Interfaces
-可选的channels：
+#### channels：
+
 L2_BOOK - Price aggregated sizes. Some exchanges provide the entire depth, some provide a subset.
 
 L3_BOOK - Price aggregated orders. Like the L2 book, some exchanges may only provide partial depth.
@@ -56,8 +57,16 @@ TICKER - Traditional ticker updates
 
 FUNDING - Exchange specific funding data / updates
 
-BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注意同时订阅 L2 和 L3 并掌握变化需要两次 feedhandler，每个 feedhandler 内的 BOOK_DELTA 只能对应 L2 或 L3 中的一个。
+BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注意同时订阅 L2 和 L3 并掌握变化需要两次 feedhandler，每个 feedhandler 内的 BOOK_DELTA 只能对应 L2 或 L3 中的一个.
 
+#### symbols
+格式为 BASE - QUOTE，例如 BTC-USD, BTC-USDT, ETH-USD.
+
+#### subscriptions
+以字典的格式提供
+```Python
+{TRADES: ['BTC-USD', 'BTC-USDT', 'ETH-USD'], L2_BOOK: ['BTC-USD']}
+```
 ### Callbacks
 ### Backends (后端)
 `Redis (Streams and Sorted Sets)`   `Arctic`    `ZeroMQ`    `UDP Sockets`   `TCP Sockets`
