@@ -5,17 +5,35 @@
 ## cryptofeed开源框架
 ### Feedhandler
 #### 可以连接的交易所
-使用add_feed添加下面的交易所(一次调用只能添加一个交易所)
+使用add_feed添加下面的交易所(一次调用只能添加一个交易所)，feed列表即为已添加的交易所的列表。
 
-`AscendEX`   `Bequant`   `Bitcoin.com`   `Bitfinex`    `bitFlyer`   `Bithumb`   `Bitstamp` 
+`AscendEX`   `Bequant`   `Bitcoin.com`   `Bitfinex`    `bitFlyer`   `Bithumb`   `Bitstamp`    `Bittrex`   `Blockchain.com`
 
-`Bittrex`   `Blockchain.com`    `Bybit Binance`   `Binance Delivery`    `Binance Futures`   
+`Bybit Binance`   `Binance Delivery`    `Binance Futures`    `Binance US`    `BitMEX`    `Coinbase`    `Deribit`   
 
-`Binance US`    `BitMEX`    `Coinbase`    `Deribit`   `dYdX`    `EXX`   `FTX`   `FTX US`    
+`dYdX`    `EXX`(sometimes a connection can take many many retries)   `FTX`   `FTX US`      `Gate.io`   `Gemini`  
 
-`Gate.io`   `Gemini`    `HitBTC`    `Huobi`   `Huobi DM`    `Huobi Swap`    `Kraken`    
+`HitBTC`    `Huobi`   `Huobi DM`    `Huobi Swap`    `Kraken`    `Kraken Futures`    `KuCoin`(requires an API key for L2 book data)
 
-`Kraken Futures`    `KuCoin`    `OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
+`OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
+
+```Python
+def main():
+    config = {'log': {'filename': 'demo.log', 'level': 'INFO'}}
+    # the config will be automatically passed into any exchanges set up by string. Instantiated exchange objects would need to pass the config in manually.
+    f = FeedHandler(config=config)
+    
+    # 示例(可通过config文件自动化输入，以下示例均为手动化配置)
+    f.add_feed(KuCoin(symbols=['BTC-USDT', 'ETH-USDT'], channels=[L2_BOOK, ], callbacks={L2_BOOK: book, BOOK_DELTA: delta, CANDLES: candle_callback, TICKER: ticker, TRADES: trade}))
+    f.add_feed(Gateio(symbols=['BTC-USDT', 'ETH-USDT'], channels=[L2_BOOK], callbacks={CANDLES: candle_callback, L2_BOOK: book, TRADES: trade, TICKER: ticker, BOOK_DELTA: delta}))
+    pairs = Binance.symbols()
+    f.add_feed(Binance(symbols=pairs, channels=[TRADES], callbacks={TRADES: TradeCallback(trade)}))
+    
+    f.run()
+
+if __name__ == '__main__':
+    main()
+```
 
 
 ### Connection Abstraction
