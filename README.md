@@ -7,15 +7,15 @@
 #### 可以连接的交易所
 .add_feed() 可以添加下面任意交易所(一次调用只能添加一个交易所)，feed列表即为已添加的交易所的列表。
 
-`AscendEX`   `Bequant`   `Bitcoin.com`   `Bitfinex`    `bitFlyer`   `Bithumb`   `Bitstamp`    `Bittrex`   `Blockchain.com`
-
-`Bybit Binance`   `Binance Delivery`    `Binance Futures`    `Binance US`    `BitMEX`    `Coinbase`    `Deribit`   
-
-`dYdX`    `EXX`(sometimes a connection can take many many retries)   `FTX`   `FTX US`      `Gate.io`   `Gemini`  
-
-`HitBTC`    `Huobi`   `Huobi DM`    `Huobi Swap`    `Kraken`    `Kraken Futures`    `KuCoin`(requires an API key for L2 book data)
-
-`OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
+>`AscendEX`   `Bequant`   `Bitcoin.com`   `Bitfinex`    `bitFlyer`   `Bithumb`   `Bitstamp`    `Bittrex`   `Blockchain.com`
+>
+>`Bybit Binance`   `Binance Delivery`    `Binance Futures`    `Binance US`    `BitMEX`    `Coinbase`    `Deribit`   
+>
+>`dYdX`    `EXX`(sometimes a connection can take many many retries)   `FTX`   `FTX US`      `Gate.io`   `Gemini`  
+>
+>`HitBTC`    `Huobi`   `Huobi DM`    `Huobi Swap`    `Kraken`    `Kraken Futures`    `KuCoin`(requires an API key for L2 book data)
+>
+>`OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
 
 .run() 启动Feedhandler。注意Feedhandler使用Asyncio模块，已经运行了Feedhandler的时候运行run()会报错。
 
