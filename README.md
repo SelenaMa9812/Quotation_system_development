@@ -3,6 +3,28 @@
 <img src="https://github.com/SelenaMa9812/Quotation_system_development/blob/main/images/%E8%A1%8C%E6%83%85%E4%B8%AD%E5%BF%83.jpg" width="600" height="400" />
 
 ## cryptofeed开源框架
+```Python
+from cryptofeed.callback import TickerCallback, TradeCallback, BookCallback, FundingCallback
+from cryptofeed import FeedHandler
+from cryptofeed.exchanges import Coinbase
+from cryptofeed.defines import TRADES, TICKER
+
+async def ticker(feed, symbol, bid, ask, timestamp, receipt_timestamp):
+    print(f'Timestamp: {timestamp} Feed: {feed} Pair: {symbol} Bid: {bid} Ask: {ask}')
+
+async def trade(feed, symbol, order_id, timestamp, side, amount, price, receipt_timestamp):
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {symbol} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+
+def main():
+    f = FeedHandler()
+    f.add_feed(Coinbase(symbols=['BTC-USD'], channels=[TRADES, TICKER], callbacks={TICKER: TickerCallback(ticker), TRADES: TradeCallback(trade)}))
+
+    f.run()
+
+if __name__ == '__main__':
+    main()
+```
+
 ### Feedhandler
 #### 可以连接的交易所
 .add_feed() 可以添加下面任意交易所(一次调用只能添加一个交易所)，feed列表即为已添加的交易所的列表.
@@ -68,12 +90,12 @@ BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注�
 {TRADES: ['BTC-USD', 'BTC-USDT', 'ETH-USD'], L2_BOOK: ['BTC-USD']}
 ```
 ### Callbacks
+使用框架时定义接收数据的格式(数据库或socket).
+
 ### Backends (后端)
 `Redis (Streams and Sorted Sets)`   `Arctic`    `ZeroMQ`    `UDP Sockets`   `TCP Sockets`
 
 `Unix Domain Sockets`   `InfluxDB v2`    `MongoDB`    `Kafka`     `Elastic Search`
 
 `RabbitMQ`    `PostgreSQL`    `GCP Pub/Sub`     `VictoriaMetrics`
-
-
 
