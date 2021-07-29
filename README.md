@@ -4,17 +4,15 @@
 
 ## cryptofeed
 ### 可以连接的交易所
-`AscendEX`   `Bequant`   `Bitcoin.com`   `Bitfinex`    `bitFlyer`   `Bithumb`
+`AscendEX`   `Bequant`   `Bitcoin.com`   `Bitfinex`    `bitFlyer`   `Bithumb`   `Bitstamp` 
 
-`Bitstamp`   `Bittrex`   `Blockchain.com`    `Bybit Binance`   `Binance Delivery`
+`Bittrex`   `Blockchain.com`    `Bybit Binance`   `Binance Delivery`    `Binance Futures`   
 
-`Binance Futures`   `Binance US`    `BitMEX`    `Coinbase`    `Deribit`   `dYdX`
+`Binance US`    `BitMEX`    `Coinbase`    `Deribit`   `dYdX`    `EXX`   `FTX`   `FTX US`    
 
-`EXX`   `FTX`   `FTX US`    `Gate.io`   `Gemini`    `HitBTC`    `Huobi`   `Huobi DM`
+`Gate.io`   `Gemini`    `HitBTC`    `Huobi`   `Huobi DM`    `Huobi Swap`    `Kraken`    
 
-`Huobi Swap`    `Kraken`    `Kraken Futures`    `KuCoin`    `OKCoin`    `OKEx`
-
-`Phemex`    `Poloniex`    `ProBit`    `Upbit`
+`Kraken Futures`    `KuCoin`    `OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
 
 
 
