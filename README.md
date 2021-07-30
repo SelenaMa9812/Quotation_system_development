@@ -39,7 +39,7 @@ if __name__ == '__main__':
 >
 >`OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
 
-.run() 启动Feedhandler。注意Feedhandler使用Asyncio模块，已经运行了Feedhandler的时候运行run()会报错.
+.run() 启动Feedhandler。注意Feedhandler使用Asyncio模块，主线程已经运行了Feedhandler的时候运行run()会造成主线程阻塞(debug方法：run()添加参数start_loop = False，feedhandler不会启动，用户可以添加更多的任务/协程，然后负责稍后启动事件循环).
 
 ```Python
 def main():
