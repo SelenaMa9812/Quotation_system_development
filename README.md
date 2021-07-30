@@ -94,7 +94,7 @@ Connection Handler 通过创建连接、处理异常并根据需要重新启动�
 
 两种模式：raw, backend
 
-1) [raw](https://github.com/bmoscon/cryptofeed/blob/master/cryptofeed/callback.py) 直接对数据进行修改
+  1) [raw](https://github.com/bmoscon/cryptofeed/blob/master/cryptofeed/callback.py) 直接对数据进行修改
 
 >`Trade`
 `Ticker`
@@ -104,8 +104,7 @@ Connection Handler 通过创建连接、处理异常并根据需要重新启动�
 `Funding`
 `Liquidation`
 `Volume`
-
-2) [backend](https://github.com/bmoscon/cryptofeed/tree/master/cryptofeed/backends) 对数据进行存储和传输. 例如：Redis, Postgres 用来存储，TCP 传输给其他函数进行处理.
+  2) [backend](https://github.com/bmoscon/cryptofeed/tree/master/cryptofeed/backends) 对数据进行存储和传输. 例如：Redis, Postgres 用来存储，TCP 传输给其他函数进行处理.
 
 >`Arctic`
 `ElasticSearch`
