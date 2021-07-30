@@ -39,7 +39,7 @@ if __name__ == '__main__':
 >
 >`OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
 
-.run() 启动Feedhandler。注意Feedhandler使用Asyncio模块，主线程已经运行了Feedhandler的时候运行run()会造成主线程阻塞(debug方法：run()添加参数start_loop = False，feedhandler不会启动，用户可以添加更多的任务/协程，然后负责稍后启动事件循环).
+.run() 启动 Feedhandler。注意 Feedhandler 使用 Asyncio 模块，主线程已经运行了 Feedhandler 的时候运行 run() 会造成主线程阻塞(debug 方法：run() 添加参数 start_loop = False，feedhandler 不会启动，用户可以添加更多的任务/协程，然后负责稍后启动事件循环).
 
 ```Python
 def main():
@@ -62,9 +62,9 @@ if __name__ == '__main__':
 
 
 ### Connection Handler
-cryptofeed支持HTTP, Websocket协议.
+cryptofeed 支持 HTTP, Websocket 协议.
 
-Connection Handler通过创建连接、处理异常并根据需要重新启动连接，进行维护和监视connections.
+Connection Handler 通过创建连接、处理异常并根据需要重新启动连接，进行维护和监视 connections.
 
 ### Exchange Interfaces
 #### channels：
@@ -90,7 +90,7 @@ BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注�
 {TRADES: ['BTC-USD', 'BTC-USDT', 'ETH-USD'], L2_BOOK: ['BTC-USD']}
 ```
 ### Callbacks
-使用框架时定义接收数据的格式(数据库或socket). 注意不要在 callback 中做任何耗费算力的事情，会极大影响cryptofeed的性能。数据应该被快速处理并传递给另一个进程/应用程序等，或者应该使用backend回调将数据转发到其他地方。
+使用框架时定义接收数据的格式(数据库或 socket). 注意不要在 callback 中做任何耗费算力的事情，会极大影响 cryptofeed 的性能。数据应该被快速处理并传递给另一个进程/应用程序等，或者应该使用backend回调将数据转发到其他地方。
 
 两种模式：raw, backend
 
