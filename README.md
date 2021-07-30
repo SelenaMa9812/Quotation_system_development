@@ -38,6 +38,8 @@ if __name__ == '__main__':
 >`HitBTC`    `Huobi`   `Huobi DM`    `Huobi Swap`    `Kraken`    `Kraken Futures`    `KuCoin`(requires an API key for L2 book data)
 >
 >`OKCoin`    `OKEx`    `Phemex`    `Poloniex`    `ProBit`    `Upbit`
+>
+>[不同交易所的订单验证机制](https://github.com/bmoscon/cryptofeed/blob/master/docs/book_validation.md)
 
 .run() 启动 Feedhandler。注意 Feedhandler 使用 Asyncio 模块，主线程已经运行了 Feedhandler 的时候运行 run() 会造成主线程阻塞(debug 方法：run() 添加参数 start_loop = False，feedhandler 不会启动，用户可以添加更多的任务/协程，然后负责稍后启动事件循环).
 
