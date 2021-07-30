@@ -90,7 +90,36 @@ BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注�
 {TRADES: ['BTC-USD', 'BTC-USDT', 'ETH-USD'], L2_BOOK: ['BTC-USD']}
 ```
 ### Callbacks
-使用框架时定义接收数据的格式(数据库或socket).
+使用框架时定义接收数据的格式(数据库或socket). 注意不要在回调中做任何耗费算力的事情，会极大影响cryptofeed的性能。数据应该被快速处理并传递给另一个进程/应用程序等，或者应该使用backend回调将数据转发到其他地方。
+
+两种模式：raw, backend
+
+1. [raw](https://github.com/bmoscon/cryptofeed/blob/master/cryptofeed/callback.py) 直接对数据进行修改
+
+`Trade`
+`Ticker`
+`Book`
+`Book Update`
+`Open Interest`
+`Funding`
+`Liquidation`
+`Volume`
+
+2. [backend](https://github.com/bmoscon/cryptofeed/tree/master/cryptofeed/backends) 对数据进行存储和传输. 例如：Redis, Postgres用来存储，TCP 传输给其他函数进行处理.
+
+`Arctic`
+`ElasticSearch`
+`InfluxDB`
+`Kafka`
+`MongoDB`
+`Postgres`
+`RabbitMQ`
+`Redis`
+`Redis Streams`
+`TCP/UDP/UDS sockets`
+`ZMQ`
+
+[wrappers](https://github.com/bmoscon/cryptofeed/blob/master/cryptofeed/backends/aggregate.py) 可以与回调函数一起使用，将数据转换为OHLCV, 节流数据等
 
 ### Backends (后端)
 `Redis (Streams and Sorted Sets)`   `Arctic`    `ZeroMQ`    `UDP Sockets`   `TCP Sockets`
