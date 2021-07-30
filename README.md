@@ -25,7 +25,7 @@ if __name__ == '__main__':
     main()
 ```
 
-### 1.Feedhandler
+### 1. Feedhandler
 #### 可以连接的交易所
 .add_feed() 可以添加下面任意交易所(一次调用只能添加一个交易所)，feed列表即为已添加的交易所的列表.
 
@@ -58,15 +58,15 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-### 2.Connection Abstraction
+### 2. Connection Abstraction
 
 
-### 3.Connection Handler
+### 3. Connection Handler
 cryptofeed 支持 HTTP, Websocket 协议.
 
 Connection Handler 通过创建连接、处理异常并根据需要重新启动连接，进行维护和监视 connections.
 
-### 4.Exchange Interfaces
+### 4. Exchange Interfaces
 #### channels：
 
 L2_BOOK - Price aggregated sizes. Some exchanges provide the entire depth, some provide a subset.
@@ -89,12 +89,12 @@ BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注�
 ```Python
 {TRADES: ['BTC-USD', 'BTC-USDT', 'ETH-USD'], L2_BOOK: ['BTC-USD']}
 ```
-### 5.Callbacks
+### 5. Callbacks
 使用框架时定义接收数据的格式(数据库或 socket). 注意不要在 callback 中做任何耗费算力的事情，会极大影响 cryptofeed 的性能。数据应该被快速处理并传递给另一个进程/应用程序等，或者应该使用backend回调将数据转发到其他地方。
 
 两种模式：raw, backend
 
-1. [raw](https://github.com/bmoscon/cryptofeed/blob/master/cryptofeed/callback.py) 直接对数据进行修改
+1) [raw](https://github.com/bmoscon/cryptofeed/blob/master/cryptofeed/callback.py) 直接对数据进行修改
 
 `Trade`
 `Ticker`
@@ -105,7 +105,7 @@ BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注�
 `Liquidation`
 `Volume`
 
-2. [backend](https://github.com/bmoscon/cryptofeed/tree/master/cryptofeed/backends) 对数据进行存储和传输. 例如：Redis, Postgres 用来存储，TCP 传输给其他函数进行处理.
+2) [backend](https://github.com/bmoscon/cryptofeed/tree/master/cryptofeed/backends) 对数据进行存储和传输. 例如：Redis, Postgres 用来存储，TCP 传输给其他函数进行处理.
 
 `Arctic`
 `ElasticSearch`
@@ -121,7 +121,7 @@ BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注�
 
 [wrappers](https://github.com/bmoscon/cryptofeed/blob/master/cryptofeed/backends/aggregate.py) 可以与回调函数一起使用，将数据转换为 OHLCV (Open, High, Low, Close, Volume), 节流数据等
 
-### 6.Backends (后端)
+### 6. Backends (后端)
 `Redis (Streams and Sorted Sets)`   `Arctic`    `ZeroMQ`    `UDP Sockets`   `TCP Sockets`
 
 `Unix Domain Sockets`   `InfluxDB v2`    `MongoDB`    `Kafka`     `Elastic Search`
