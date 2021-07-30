@@ -69,17 +69,17 @@ Connection Handler 通过创建连接、处理异常并根据需要重新启动�
 ### 4. Exchange Interfaces
 #### channels：
 
-L2_BOOK - Price aggregated sizes. Some exchanges provide the entire depth, some provide a subset.
-
-L3_BOOK - Price aggregated orders. Like the L2 book, some exchanges may only provide partial depth.
-
-TRADES - **Note this reports the taker's side**, even for exchanges that report the maker side
-
-TICKER - Traditional ticker updates
-
-FUNDING - Exchange specific funding data / updates
-
-BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注意同时订阅 L2 和 L3 并掌握变化需要两次 feedhandler，每个 feedhandler 内的 BOOK_DELTA 只能对应 L2 或 L3 中的一个.
+>L2_BOOK - Price aggregated sizes. Some exchanges provide the entire depth, some provide a subset.
+>
+>L3_BOOK - Price aggregated orders. Like the L2 book, some exchanges may only provide partial depth.
+>
+>TRADES - **Note this reports the taker's side**, even for exchanges that report the maker side
+>
+>TICKER - Traditional ticker updates
+>
+>FUNDING - Exchange specific funding data / updates
+>
+>BOOK_DELTA - **只接收数据变化**，完整数据需订阅 L2 或 L3。 注意同时订阅 L2 和 L3 并掌握变化需要两次 feedhandler，每个 feedhandler 内的 BOOK_DELTA 只能对应 L2 或 L3 中的一个.
 
 #### symbols
 格式为 BASE - QUOTE，例如 BTC-USD, BTC-USDT, ETH-USD.
