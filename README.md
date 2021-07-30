@@ -2,7 +2,7 @@
 ## 行情中心
 <img src="https://github.com/SelenaMa9812/Quotation_system_development/blob/main/images/%E8%A1%8C%E6%83%85%E4%B8%AD%E5%BF%83.jpg" width="600" height="400" />
 
-## cryptofeed开源框架
+## cryptofeed框架
 ```Python
 from cryptofeed.callback import TickerCallback, TradeCallback, BookCallback, FundingCallback
 from cryptofeed import FeedHandler
@@ -127,3 +127,72 @@ Connection Handler 通过创建连接、处理异常并根据需要重新启动�
 >
 >`RabbitMQ`    `PostgreSQL`    `GCP Pub/Sub`     `VictoriaMetrics`
 
+## cryptofeed 使用
+### [config](https://github.com/bmoscon/cryptofeed/blob/master/config.yaml)
+分为 rest, log, exchange config 三个部分
+```Python
+# Example Config File
+rest:
+    log:
+        filename: rest.log
+        level: WARNING
+
+log:
+    filename: feedhandler.log
+    level: WARNING
+
+# Enable UVLoop (if not installed, will not cause errors)
+uvloop: True
+
+# Secrets for exchanges
+bitmex:
+    key_id: null
+    key_secret: null
+bitfinex:
+    key_id: null
+    key_secret: null
+coinbase:
+    key_id: null
+    key_secret: null
+    key_passphrase: null
+poloniex:
+    key_id: null
+    key_secret: null
+gemini:
+    key_id: null
+    key_secret: null
+    account_name: null   # this is an optional param needed only when using a master api key
+kraken:
+    key_id: null
+    key_secret: null
+deribit:
+    key_id: null
+    key_secret: null
+ftx:
+    example_subaccount_name_1:   # subaccounts are supported on FTX
+        key_id: null
+        key_secret: null
+    example_subaccount_name_2:
+        key_id: null
+        key_secret: null
+    key_id: null
+    key_secret: null
+binance_futures:
+    key_id: null
+    key_secret: null
+binance_delivery:
+    key_id: null
+    key_secret: null
+okcoin:
+    key_id: null
+    key_secret: null
+    key_passphrase: null
+okex:
+    key_id: null
+    key_secret: null
+    key_passphrase: null
+kucoin:
+    key_id: test
+    key_secret: test
+    key_passphrase: test
+```
