@@ -1,4 +1,10 @@
 # Quotation-system-development
+## 目标
+1. 学习 cryptofeed，从 example 到 Feed Class 到 FeedHandler Class 到每一个exchange（是不是就可以学到bitmex ，Bybit怎么写的）到 backends（特别是 rabbitmq）
+2. 学习 Izumi aioquant Market 文件夹下已经完成的 bitmex 和 okex_future 模版。
+逐行的增加logger.info() 查看处理逻辑。
+3. 自己在 Izumi aioquant 把 bybit / kraken 的 Market 文件夹下的写完成。
+
 ## 行情中心
 <img src="https://github.com/SelenaMa9812/Quotation_system_development/blob/main/images/%E8%A1%8C%E6%83%85%E4%B8%AD%E5%BF%83.jpg" width="600" height="400" />
 
