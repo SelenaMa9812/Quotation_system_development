@@ -205,3 +205,21 @@ kucoin:
 ```
 
 ## AIOquant 框架
+### bitmex.py
+建立class BitmexRestAPI
+```Python
+    def __init__(self, access_key: str, secret_key: str, host: str = None):
+        """initialize REST API client."""
+        self._host = host or "https://www.bitmex.com"
+        self._access_key = access_key
+        self._secret_key = secret_key
+
+
+```
+
+
+
+
+
+
+
